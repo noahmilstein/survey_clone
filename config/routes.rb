@@ -5,5 +5,5 @@ Rails.application.routes.draw do
       resources :user_answers
     end
   end
-  root 'survey#index'
+  root 'surveys#index'
 end

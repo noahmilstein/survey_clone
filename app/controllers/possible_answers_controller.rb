@@ -1,4 +1,4 @@
-class PossibleAnswerController < ApplicationController
+class PossibleAnswersController < ApplicationController
   def index
   end
 end
