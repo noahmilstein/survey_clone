@@ -4,12 +4,15 @@
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
     <% else %>
         <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
     <% end %>
 </ul>
 
 <ul>
 <% @surveys.each do |survey| %>
     <li><%= link_to survey.title, survey %></li>
+    <%= pluralize(survey.questions.size, "Question") %>
 <% end %>
 </ul>
+
 <%= link_to "New Survey", new_survey_path %>

@@ -15,10 +15,9 @@ ActiveRecord::Schema.define(version: 20170110174110) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "possible_answers", force: :cascade do |t|
+  create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
     t.text     "content"
-    t.integer  "count"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -35,14 +34,6 @@ ActiveRecord::Schema.define(version: 20170110174110) do
     t.string   "title",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "user_answers", force: :cascade do |t|
-    t.integer  "submission_id"
-    t.integer  "question_id"
-    t.string   "value"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
