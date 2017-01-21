@@ -15,11 +15,13 @@ class SurveysController < ApplicationController
   end
 
   def show
+    # @submission = Submission.new
   end
 
   def new
     @survey = Survey.new
     @survey.questions.build
+    # @submission = Submission.new
   end
 
   def create
