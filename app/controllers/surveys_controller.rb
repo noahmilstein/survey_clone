@@ -1,9 +1,17 @@
 class SurveysController < ApplicationController
-  before_action :set_survey, except: [:index, :new, :create]
+  before_action :set_survey, except: [:index, :new, :create, :home, :mysurveys]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def home
+  end
+
+  def mysurveys
+    @current_user = current_user
+    @surveys = Survey.where(user_id: current_user.id)
+  end
+
   def index
-    @surveys = Survey.all
+    @surveys = Survey.all.reject { |s| s.user_id == current_user.id }
   end
 
   def show

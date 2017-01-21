@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
+  root 'surveys#home'
+
   devise_for :users
-  resources :questions
-  resources :surveys
+
   resources :answers
-  root 'surveys#index'
+
+  resources :questions
+
+  resources :surveys do
+    resources :submissions
+  end
+
+  get '/home', to: 'surveys#home'
+  get '/mysurveys', to: 'surveys#mysurveys'
 end

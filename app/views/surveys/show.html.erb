@@ -2,18 +2,8 @@
 
 <h3><%= @survey.title %></h3>
 
-<ol class="questions">
-  <% @survey.questions.each do |question| %>
-    <li>
-      <%= question.prompt %>
-      <ol class="answers">
-        <% question.answers.each do |answer| %>
-          <li><%= answer.content %></li>
-        <% end %>
-      </ol>
-    </li>
-  <% end %>
-</ol>
-
-<%= link_to "Edit", edit_survey_path(@survey) %>
-<%= link_to "Back to Surveys", surveys_path %>
+<% if current_user == @survey.user_id %>
+  <% render "mysurvey" %>
+<% else %>
+  <% render 'survey_form' %>
+<% end %>
