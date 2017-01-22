@@ -3,7 +3,7 @@
 <h3><%= @survey.title %></h3>
 
 <% if current_user == @survey.user_id %>
-  <% render "mysurvey" %>
+  <%= render "mysurvey" %>
 <% else %>
-  <% render 'survey_form' %>
+  <%= render 'survey_form' %>
 <% end %>

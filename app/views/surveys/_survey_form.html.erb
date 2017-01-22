@@ -3,9 +3,11 @@
 <%= form_for @survey do |f| %>
   <% @survey.questions.each do |q| %>
     <%= q.prompt %>
+      <%= f.text_field %>
 
     <% q.answers.each do |a| %>
       <%= a.content %>
+      <%= f.text_field %>
 
     <% end %>
   <% end %>
