@@ -5,5 +5,5 @@
 <% if current_user == @survey.user_id %>
   <%= render "mysurvey" %>
 <% else %>
-  <%= render 'survey_form' %>
+  <%= render 'survey_form', locals: { survey: @survey } %>
 <% end %>
