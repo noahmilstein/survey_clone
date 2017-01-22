@@ -1,5 +1,6 @@
-<%= form_for @submission, as: :submission, url: "/surveys/#{:survey_id}/submissions", method: :post do |f| %>
-
+<%# form_for @submission, as: :submission, url: "/surveys/#{:survey_id}/submissions", method: :post do |f| %>
+<%# form_for @survey, as: :submission, url: "/surveys/#{:survey_id}/submissions", method: :post do |f| %>
+<%= form_for @survey do |f| %>
   <% @survey.questions.each do |q| %>
     <%= q.prompt %>
 

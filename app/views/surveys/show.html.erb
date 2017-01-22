@@ -4,6 +4,6 @@
 
 <% if current_user == @survey.user_id %>
   <% render "mysurvey" %>
-<%# else %>
-  <%# render 'submissions/new' %>
+<% else %>
+  <% render 'survey_form' %>
 <% end %>

@@ -15,12 +15,7 @@ class SurveysController < ApplicationController
   end
 
   def show
-    if current_user.id == @survey.user_id
-      render :mysurvey
-    else
-      redirect_to new_survey_submission_path
-    end
-    # @submission = Submission.new
+    @survey.submissions.build
   end
 
   def new
