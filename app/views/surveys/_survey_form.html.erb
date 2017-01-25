@@ -1,14 +1,13 @@
-<%# form_for @submission, as: :submission, url: "/surveys/#{:survey_id}/submissions", method: :post do |f| %>
-<%# form_for @survey, as: :submission, url: "/surveys/#{:survey_id}/submissions", method: :post do |f| %>
 <%= form_for @survey do |f| %>
   <% @survey.questions.each do |q| %>
-    <%= q.prompt %>
-      <%= f.text_field %>
+    <%= fields_for q do |question_form| %>
+      <%= question_form.text_field :prompt %>
 
-    <% q.answers.each do |a| %>
-      <%= a.content %>
-      <%= f.text_field %>
-
+      <% q.answers.each do |a| %>
+        <%= fields_for a do |answer_form| %>
+          <%= answer_form.text_field :content %>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
